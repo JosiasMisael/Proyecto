@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "C:\\Miniconda3\\envs\\django2\\python.exe"
+    "python.pythonPath": "C:\\Miniconda3\\envs\\django2\\python.exe",
+    "workbench.list.automaticKeyboardNavigation": false
 }

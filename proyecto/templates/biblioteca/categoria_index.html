@@ -20,23 +20,20 @@
               </tr>
             </thead>
             <tbody>
-           <!--   {% for v in voc %}
+              {% for c in categoria %}
                 <tr>
-                  <td>{{ v.nombre }}</td>
-                  <td>{{ v.apellido }}</td>
-                  <td>{{ v.residencia }}</td>
-                  <td>{{ v.email }}</td>
+                  <td>{{ c.nombre }}</td>
                   <td>
-                 <a href="{% url 'vocalista_show' pk=v.pk %}" rel="tooltip"  class="btn btn-info btn-simple btn-xs" data-original-title="Detalles" > 
+                 <a href="" rel="tooltip"  class="btn btn-info btn-simple btn-xs" data-original-title="Detalles" > 
                       <i class="icon-exclamation-sign"></i>
                     </a>
-                    <a href="{% url 'vocalista_edit' pk=v.pk %}" rel="tooltip" class="btn btn-warning btn-simple btn-xs" data-original-title="Editar"> 
+                    <a href="" rel="tooltip" class="btn btn-warning btn-simple btn-xs" data-original-title="Editar"> 
                       <i class="icon-edit"></i>
                     </a>
                   </td>
                 </tr>
               {% endfor %}
-            </tbody> -->
+            </tbody> 
           </table>
         </div>
       </div>

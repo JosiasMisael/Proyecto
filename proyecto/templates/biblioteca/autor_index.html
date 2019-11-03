@@ -20,27 +20,30 @@
                 <th>Dirección</th>
                 <th>Telefono</th>
                 <th>Email</th>
+                <th>Pais</th>
                 <th>Opciones</th>
               </tr>
             </thead>
             <tbody>
-           <!--   {% for v in voc %}
+             {% for p in autor %}
                 <tr>
-                  <td>{{ v.nombre }}</td>
-                  <td>{{ v.apellido }}</td>
-                  <td>{{ v.residencia }}</td>
-                  <td>{{ v.email }}</td>
+                  <td>{{ p.nombre }}</td>
+                  <td>{{ p.apellido }}</td>
+                  <td>{{ p.direccion }}</td>
+                  <td>{{ p.telefono }}</td>
+                  <td>{{ p.email }}</td>
+                  <td>{{ p.Pais }}</td>
                   <td>
-                 <a href="{% url 'vocalista_show' pk=v.pk %}" rel="tooltip"  class="btn btn-info btn-simple btn-xs" data-original-title="Detalles" > 
+                 <a href="" rel="tooltip"  class="btn btn-info btn-simple btn-xs" data-original-title="Detalles" > 
                       <i class="icon-exclamation-sign"></i>
                     </a>
-                    <a href="{% url 'vocalista_edit' pk=v.pk %}" rel="tooltip" class="btn btn-warning btn-simple btn-xs" data-original-title="Editar"> 
+                    <a href="" rel="tooltip" class="btn btn-warning btn-simple btn-xs" data-original-title="Editar"> 
                       <i class="icon-edit"></i>
                     </a>
                   </td>
                 </tr>
               {% endfor %}
-            </tbody> -->
+            </tbody> 
           </table>
         </div>
       </div>
