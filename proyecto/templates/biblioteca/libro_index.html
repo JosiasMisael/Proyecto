@@ -1,0 +1,47 @@
+{% extends 'biblioteca/base.html' %}
+{% block ac3 %}active{% endblock %}
+{% block titulo %}Libro{% endblock %}
+  {% block content %}
+  <h1>Libro <a rel="tooltip" data-original-title="Agregar" class="btn btn-success "><i class="icon-plus"></i></a></h1>
+  <hr>
+  <div class="row-fluid">
+    <div class="span12">
+      <div class="widget-box">
+        <div class="widget-title"> <span class="icon"> <i class="icon-th"></i> </span>
+          <h5>Información del libro</h5>
+        </div>
+        <div class="widget-content nopadding">
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th>Título</th>
+                <th>Editoria</th>
+                <th>Precio</th>
+                <th>Cantidad de Unidades</th>
+                <th>Opciones</th>
+              </tr>
+            </thead>
+            <tbody>
+           <!--   {% for v in voc %}
+                <tr>
+                  <td>{{ v.nombre }}</td>
+                  <td>{{ v.apellido }}</td>
+                  <td>{{ v.residencia }}</td>
+                  <td>{{ v.email }}</td>
+                  <td>
+                 <a href="{% url 'vocalista_show' pk=v.pk %}" rel="tooltip"  class="btn btn-info btn-simple btn-xs" data-original-title="Detalles" > 
+                      <i class="icon-exclamation-sign"></i>
+                    </a>
+                    <a href="{% url 'vocalista_edit' pk=v.pk %}" rel="tooltip" class="btn btn-warning btn-simple btn-xs" data-original-title="Editar"> 
+                      <i class="icon-edit"></i>
+                    </a>
+                  </td>
+                </tr>
+              {% endfor %}
+            </tbody> -->
+          </table>
+        </div>
+      </div>
+  </div>
+  </div>
+  {% endblock content %}

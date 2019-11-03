@@ -1,0 +1,105 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>{% block titulo %} {% endblock %}| Casa del libro</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+<link rel="stylesheet" href="{% static 'css/bootstrap-responsive.min.css' %}" />
+<link rel="stylesheet" href="{% static 'css/fullcalendar.css' %}" />
+<link rel="stylesheet" href="{% static 'css/matrix-style.css' %}" />
+<link rel="stylesheet" href="{% static 'css/matrix-media.css' %}" />
+<link href="{% static 'font-awesome/css/font-awesome.css' %}" rel="stylesheet" />
+<link rel="stylesheet" href="{% static 'css/jquery.gritter.css' %}" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+</head>
+<body>
+
+<!--Header-part-->
+<div id="header">
+  <h1>La casa del libro</h1>
+</div>
+<!--close-Header-part-->
+
+
+<!--top-Header-menu-->
+<div id="user-nav" class="navbar navbar-inverse ">
+  <ul class="nav navbar-nav navbar-right">
+    <li  class="dropdown" id="profile-messages" ><a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i class="icon icon-user"></i>  <span class="text">{{ user.username }}</span><b class="caret"></b></a>
+      <ul class="dropdown-menu">
+        <li><a><i class="icon-key"></i> Cerrar sesión</a></li>
+      </ul>
+    </li>
+
+    </ul>
+</div>
+<!--close-top-Header-menu-->
+<!--start-top-serch-->
+
+<!--close-top-serch-->
+<!--sidebar-menu-->
+<div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
+  <ul>
+    <li class="{% block ac1 %} {% endblock %}"><a href="{% url 'pais_index' %}"><i class=" icon-play"></i> <span>Pais</span></a> </li>
+    <li class="{% block ac2 %} {% endblock %}"><a href="{% url 'autor_index' %}"><i class=" icon-play"></i> <span>Autor</span></a> </li>
+    <li class="{% block ac3 %} {% endblock %}"><a href="{% url 'libro_index' %}"><i class=" icon-volume-up"></i> <span>Libro</span></a> </li>
+    <li class="{% block ac4 %} {% endblock %}"><a href="{% url 'categoria_index' %}"><i class="icon-star"></i> <span>Categoría de libros</span></a> </li>
+    <li class="{% block ac5 %} {% endblock %}"><a href=""><i class=" icon-music"></i> <span>Canción</span></a></li>
+    <li class="{% block ac6 %} {% endblock %}"><a href=""><i class="icon-user"></i> <span>Artista</span></a></li>
+
+  </ul>
+</div>
+<!--sidebar-menu-->
+
+<!--main-container-part-->
+<div id="content">
+<!--breadcrumbs-->
+  <div id="content-header">
+    <div id="breadcrumb"> <a href="#" title="Josias Tacam" class="tip-bottom"><i class="icon-home"></i>Casa del Libro</a></div>
+  </div>
+<!--End-breadcrumbs-->
+
+<!--Action boxes-->
+  <div class="container-fluid">
+    {% block content %}
+
+    {% endblock %}
+
+  </div>
+
+<!--end-main-container-part-->
+
+<!--Footer-part-->
+
+<div class="row-fluid">
+  <div id="footer" class="span12"> 2019 &copy; Josias Misael Tacam</div>
+</div>
+
+<!--end-Footer-part-->
+
+<script src="{% static 'js/excanvas.min.js' %}"></script>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/jquery.ui.custom.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/jquery.flot.min.js' %}"></script>
+<script src="{% static 'js/jquery.flot.resize.min.js' %}"></script>
+<script src="{% static 'js/jquery.peity.min.js' %}"></script>
+<script src="{% static 'js/fullcalendar.min.js' %}"></script>
+<script src="{% static 'js/matrix.js' %}"></script>
+<script src="{% static 'js/matrix.dashboard.js' %}"></script>
+<script src="{% static 'js/jquery.gritter.min.js' %}"></script>
+<script src="{% static 'js/matrix.interface.js' %}"></script>
+<script src="{% static 'js/matrix.chat.js' %}"></script>
+<script src="{% static 'js/jquery.validate.js' %}"></script>
+<script src="{% static 'js/matrix.form_validation.js' %}"></script>
+<script src="{% static 'js/jquery.wizard.js' %}"></script>
+<script src="{% static 'js/jquery.uniform.js' %}"></script>
+<script src="{% static 'js/select2.min.js' %}"></script>
+<script src="{% static 'js/matrix.popover.js' %}"></script>
+<script src="{% static 'js/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'js/matrix.tables.js' %}"></script>
+
+
+</body>
+</html>
