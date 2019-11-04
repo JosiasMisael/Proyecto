@@ -33,7 +33,7 @@
                   <td>{{ l.editoria }}</td>
                   
                   <td> {% for a in l.autor.all %}
-                     {{ a.nombre }}{{a.apellido}}
+                     {{ a.nombre }},{{a.apellido}}{% if not forloop.last %}.  {% endif %}
                     {% endfor%} </td>
 
 

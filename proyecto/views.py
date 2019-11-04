@@ -97,26 +97,15 @@ def libro(request):
     libro = Libro.objects.all()
     return render(request,'biblioteca/libro_index.html', {'libro': libro})
     
-@login_required
-def libro_nuevo(request):
-    if request.method == 'POST':
-        form = LibroForm(request.POST, request.FILES)
-        if form.is_valid():
-            pub = form.save(commit=False)
-            pub.save()
-            return redirect('libro_index')         
-    else:
-        form = LibroForm()
-    return render(request, 'biblioteca/libro_edit.html', {'form': form})
 
 @login_required
-def libro_nueva(request):
+def libro_nuevo(request):
     if request.method == "POST":
-        form = LibroForm(request.POST)
+        form = LibroForm(request.POST, request.FILES)
         if form.is_valid():
-            libro = Libro.objects.create(titulo=form.cleaned_data['titulo'],editoria=form.cleaned_data['editoria'], categoria=form.cleaned_data['categoria'],unidad=form.cleaned_data['unidad'],precio=form.cleaned_data['precio'],publicacion=form.cleaned_data['publicacion'])
+            libro = Libro.objects.create(titulo=form.cleaned_data['titulo'],editoria=form.cleaned_data['editoria'], categoria=form.cleaned_data['categoria'],unidad=form.cleaned_data['unidad'],precio=form.cleaned_data['precio'],publicacion=form.cleaned_data['publicacion'], image=form.cleaned_data['image'])
             for autor_id in request.POST.getlist('autor'):
-                asignacion=Asignacion(autor_id=autor_id, libro_id = libro.id)
+                asignacion=Asignacion(autor_id=autor_id, libro_id=libro.id)
                 asignacion.save()
                 return redirect('libro_index')
     else:

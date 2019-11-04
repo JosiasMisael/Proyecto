@@ -17,15 +17,16 @@ class AutorForm(forms.ModelForm):
     class Meta:
         model = Autor
         fields = ('nombre','apellido', 'direccion', 'telefono','email','Pais')
+
 class LibroForm(forms.ModelForm):
     class Meta:
         model =  Libro
-        fields = ('titulo','editoria','categoria','unidad', 'precio','publicacion','autor')
-    
+        fields = ('titulo','editoria','categoria','unidad', 'precio','publicacion','image','autor')
+
     def __init__ (self, *args, **kwargs):
         super(LibroForm, self).__init__(*args, **kwargs)
         self.fields["autor"].widget = forms.widgets.CheckboxSelectMultiple()
-        self.fields["autor"].help_text = "Ingrese los Autores"
+        self.fields["autor"].help_text = "Selecciones los Autores"
         self.fields["autor"].queryset = Autor.objects.all()
 
 

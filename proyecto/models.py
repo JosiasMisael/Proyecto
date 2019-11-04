@@ -43,7 +43,7 @@ class Libro(models.Model):
     categoria = models.ForeignKey(Categoria, blank=True, null=True, on_delete=models.CASCADE)
     precio = models.DecimalField(max_digits=5, decimal_places=3)
     publicacion = models.IntegerField(null=True)
-    image = models.ImageField(blank=True, null=True, verbose_name="imagen")
+    image = models.ImageField(blank=True, null=True)
     autor = models.ManyToManyField(Autor, through='Asignacion')
     def __str__(self):
         return self.titulo
