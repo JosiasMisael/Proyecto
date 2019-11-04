@@ -1,6 +1,6 @@
 
 from django.shortcuts import render, HttpResponse, get_object_or_404, redirect, render_to_response
-from .models import Pais, Libro, Autor, Categoria
+from .models import *
 from .forms import *
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -96,6 +96,7 @@ def pais_remove(request, pk):
 def libro(request):
     libro = Libro.objects.all()
     return render(request,'biblioteca/libro_index.html', {'libro': libro})
+    
 @login_required
 def libro_nuevo(request):
     if request.method == 'POST':
@@ -107,6 +108,41 @@ def libro_nuevo(request):
     else:
         form = LibroForm()
     return render(request, 'biblioteca/libro_edit.html', {'form': form})
+
+@login_required
+def libro_nueva(request):
+    if request.method == "POST":
+        form = LibroForm(request.POST)
+        if form.is_valid():
+            libro = Libro.objects.create(titulo=form.cleaned_data['titulo'],editoria=form.cleaned_data['editoria'], categoria=form.cleaned_data['categoria'],unidad=form.cleaned_data['unidad'],precio=form.cleaned_data['precio'],publicacion=form.cleaned_data['publicacion'])
+            for autor_id in request.POST.getlist('autor'):
+                asignacion=Asignacion(autor_id=autor_id, libro_id = libro.id)
+                asignacion.save()
+                return redirect('libro_index')
+    else:
+        form = LibroForm()
+    return render(request, 'biblioteca/libro_edit.html', {'form': form})
+
+
+@login_required
+def libro_editar(request, pk):
+    libro = get_object_or_404(Libro, pk=pk)
+    if request.method == "POST":
+        form = LibroForm(request.POST, request.FILES, instance=libro)
+        if form.is_valid():
+            libro = form.save(commit=False)
+            libro.save()
+            return redirect('libro_index')
+
+    else:
+        form = LibroForm(instance=libro)
+    return render(request, 'biblioteca/libro_edit.html', {'form': form})
+
+@login_required
+def libro_remove(request, pk):
+    libro = get_object_or_404(Libro, pk=pk)
+    libro.delete()
+    return redirect('libro_index')
 
 
 
@@ -129,6 +165,7 @@ def categoria_nuevo(request):
     else:
         form = CategoriaForm()
         return render(request, 'biblioteca/categoria_edit.html', {'form':form})
+
 @login_required
 def categoria_edit(request, pk):
     categoria = get_object_or_404(Categoria, pk=pk)

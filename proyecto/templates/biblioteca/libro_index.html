@@ -31,22 +31,26 @@
                   <td>{{ l.categoria }}</td>
                   <td>{{ l.titulo }}</td>
                   <td>{{ l.editoria }}</td>
+                  
                   <td> {% for a in l.autor.all %}
-                       {{a.nombre}}{{a.apellido}}{% if not forloop.last %}{% endif%}
+                     {{ a.nombre }}{{a.apellido}}
                     {% endfor%} </td>
+
+
                   <td>{{ l.publicacion }}</td>
                   <td>{{ l.unidad}}</td>               
                   <td>Q{{l.precio}}</td>
+
                   <td>
                     {% if l.image %}
                         <img class="img-fluid" width="100" height="75" src="{{l.image.url}}">
                      {% endif %}         
                       </td>
                   <td>
-                 <a href="" rel="tooltip"  class="btn btn-info btn-simple btn-xs" data-original-title="Detalles" > 
+                 <a href="{% url 'libro_remove' pk=l.pk %}" rel="tooltip"  class="btn btn-info btn-simple btn-xs" data-original-title="Detalles" > 
                       <i class="icon-exclamation-sign"></i>
                     </a>
-                    <a href="" rel="tooltip" class="btn btn-warning btn-simple btn-xs" data-original-title="Editar"> 
+                    <a href="{% url 'libro_editar' pk=l.pk %}" rel="tooltip" class="btn btn-warning btn-simple btn-xs" data-original-title="Editar"> 
                       <i class="icon-edit"></i>
                     </a>
                   </td>
