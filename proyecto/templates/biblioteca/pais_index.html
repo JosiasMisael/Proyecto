@@ -3,7 +3,7 @@
 {% block titulo %} Pais {% endblock %}
 
   {% block content %}
-  <h1>Pais<a rel="tooltip" data-original-title="Agregar" class="btn btn-success "><i class="icon-plus"></i></a></h1>
+  <h1>Pais<a href="{% url 'pais_nuevo' %}" rel="tooltip" data-original-title="Agregar" class="btn btn-success "><i class="icon-plus"></i></a></h1>
   <hr>
   <div class="row-fluid">
     <div class="span12">
@@ -24,10 +24,10 @@
                 <tr>
                   <td>{{ p.nombre }}</td>
                   <td>
-                 <a href="" rel="tooltip"  class="btn btn-info btn-simple btn-xs" data-original-title="Detalles" > 
+                 <a href="{% url 'pais_show' pk=p.pk %}" rel="tooltip"  class="btn btn-info btn-simple btn-xs" data-original-title="Detalles" > 
                       <i class="icon-exclamation-sign"></i>
                     </a>
-                    <a href="" rel="tooltip" class="btn btn-warning btn-simple btn-xs" data-original-title="Editar"> 
+                    <a href="{% url 'pais_editar' pk=p.pk %}" rel="tooltip" class="btn btn-warning btn-simple btn-xs" data-original-title="Editar"> 
                       <i class="icon-edit"></i>
                     </a>
                   </td>

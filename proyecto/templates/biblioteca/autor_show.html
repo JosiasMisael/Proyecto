@@ -1,0 +1,21 @@
+{% extends 'biblioteca/base.html' %}
+{% block ac2 %}active{% endblock %}
+{% block titulo %} Autor {% endblock %}
+
+{% block content %}
+<div class="span12">
+  <p><strong>Nombre:</strong> {{ autor.nombre }}</p>
+  <p><strong>Apellido:</strong> {{ autor.apellido }}</p>
+  <p><strong>Direccion:</strong> {{ autor.fecha_nacimiento }}</p>
+  <p><strong>Telefono:</strong> {{ autor.residencia }}</p>
+  <p><strong>Email:</strong> {{ autor.email }}</p>
+  <p><strong>Pais:</strong> {{ autor.email }}</p>
+ 
+</div>
+<div class="span12">
+  <a href="{% url 'autor_index' %}" class="btn btn-default" ><i class=" icon-arrow-left"></i></a>
+  <a href="{% url 'autor_editar' pk=autor.pk %}" class="btn btn-warning"><i class="icon-edit"></i></a>
+  <a href="{% url 'autor_remove' pk=autor.pk %}"  class="btn btn-danger"><i class="icon-trash"></i></a>
+</div>
+  
+{% endblock %}

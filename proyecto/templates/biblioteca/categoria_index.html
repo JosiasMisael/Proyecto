@@ -3,7 +3,7 @@
 {% block titulo %} Categoría {% endblock %}
 
   {% block content %}
-  <h1>Categoría de Libros<a rel="tooltip" data-original-title="Agregar" class="btn btn-success "><i class="icon-plus"></i></a></h1>
+  <h1>Categoría de Libros<a href="{% url 'categoria_nuevo' %}"  rel="tooltip" data-original-title="Agregar" class="btn btn-success "><i class="icon-plus"></i></a></h1>
   <hr>
   <div class="row-fluid">
     <div class="span12">
@@ -24,10 +24,10 @@
                 <tr>
                   <td>{{ c.nombre }}</td>
                   <td>
-                 <a href="" rel="tooltip"  class="btn btn-info btn-simple btn-xs" data-original-title="Detalles" > 
+                 <a href="{% url 'categoria_show' pk=c.pk %}" rel="tooltip"  class="btn btn-info btn-simple btn-xs" data-original-title="Detalles" > 
                       <i class="icon-exclamation-sign"></i>
                     </a>
-                    <a href="" rel="tooltip" class="btn btn-warning btn-simple btn-xs" data-original-title="Editar"> 
+                    <a href="{% url 'categoria_editar' pk=c.pk %}" rel="tooltip" class="btn btn-warning btn-simple btn-xs" data-original-title="Editar"> 
                       <i class="icon-edit"></i>
                     </a>
                   </td>

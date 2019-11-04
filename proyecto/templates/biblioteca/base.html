@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>{% block titulo %} {% endblock %}| Casa del libro</title>
+<title>{% block titulo %} {% endblock %} | Casa del libro</title>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
@@ -28,7 +28,7 @@
   <ul class="nav navbar-nav navbar-right">
     <li  class="dropdown" id="profile-messages" ><a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i class="icon icon-user"></i>  <span class="text">{{ user.username }}</span><b class="caret"></b></a>
       <ul class="dropdown-menu">
-        <li><a><i class="icon-key"></i> Cerrar sesión</a></li>
+        <li><a href="{% url 'logout' %}"><i class="icon-key"></i> Cerrar sesión</a></li>
       </ul>
     </li>
 
@@ -45,8 +45,6 @@
     <li class="{% block ac2 %} {% endblock %}"><a href="{% url 'autor_index' %}"><i class=" icon-play"></i> <span>Autor</span></a> </li>
     <li class="{% block ac3 %} {% endblock %}"><a href="{% url 'libro_index' %}"><i class=" icon-volume-up"></i> <span>Libro</span></a> </li>
     <li class="{% block ac4 %} {% endblock %}"><a href="{% url 'categoria_index' %}"><i class="icon-star"></i> <span>Categoría de libros</span></a> </li>
-    <li class="{% block ac5 %} {% endblock %}"><a href=""><i class=" icon-music"></i> <span>Canción</span></a></li>
-    <li class="{% block ac6 %} {% endblock %}"><a href=""><i class="icon-user"></i> <span>Artista</span></a></li>
 
   </ul>
 </div>

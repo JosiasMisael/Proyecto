@@ -3,7 +3,7 @@
 {% block titulo %} Autor {% endblock %}
 
   {% block content %}
-  <h1>Autor <a rel="tooltip" data-original-title="Agregar" class="btn btn-success "><i class="icon-plus"></i></a></h1>
+  <h1>Autor  <a href="{% url 'autor_nuevo' %}"  rel="tooltip" data-original-title="Agregar" class="btn btn-success "><i class="icon-plus"></i></a></h1>
   <hr>
   <div class="row-fluid">
     <div class="span12">
@@ -21,6 +21,7 @@
                 <th>Telefono</th>
                 <th>Email</th>
                 <th>Pais</th>
+                <th>Fotografia</th>
                 <th>Opciones</th>
               </tr>
             </thead>
@@ -34,10 +35,15 @@
                   <td>{{ p.email }}</td>
                   <td>{{ p.Pais }}</td>
                   <td>
-                 <a href="" rel="tooltip"  class="btn btn-info btn-simple btn-xs" data-original-title="Detalles" > 
+                  {% if p.imagen %}
+                      <img class="img-fluid" width="100" height="75" src="{{p.imagen.url}}">
+                   {% endif %}         
+                    </td>
+                  <td>
+                 <a href="{% url 'autor_show' pk=p.pk %}" rel="tooltip"  class="btn btn-info btn-simple btn-xs" data-original-title="Detalles" > 
                       <i class="icon-exclamation-sign"></i>
                     </a>
-                    <a href="" rel="tooltip" class="btn btn-warning btn-simple btn-xs" data-original-title="Editar"> 
+                    <a href="{% url 'autor_editar' pk=p.pk %}" rel="tooltip" class="btn btn-warning btn-simple btn-xs" data-original-title="Editar"> 
                       <i class="icon-edit"></i>
                     </a>
                   </td>

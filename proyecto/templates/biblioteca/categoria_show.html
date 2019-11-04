@@ -1,0 +1,15 @@
+{% extends 'biblioteca/base.html' %}
+{% block ac4 %}active{% endblock %}
+{% block titulo %} Categoria {% endblock %}
+{% block content %}
+<div class="span12">
+  <p><strong>Categoria:</strong> {{ categoria.nombre }}</p>
+
+</div>
+<div class="span12">
+  <a href="{% url 'categoria_index' %}" class="btn btn-default" ><i class=" icon-arrow-left"></i></a>
+  <a href="{% url 'categoria_editar' pk=categoria.pk %}" class="btn btn-warning"><i class="icon-edit"></i></a>
+  <a href="{% url 'categoria_remove' pk=categoria.pk %}"  class="btn btn-danger"><i class="icon-trash"></i></a>
+</div>
+
+{% endblock %}

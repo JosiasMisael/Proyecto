@@ -1,0 +1,15 @@
+{% extends 'biblioteca/base.html' %}
+{% block ac1 %}active{% endblock %}
+{% block titulo %} Pais {% endblock %}
+{% block content %}
+<div class="span12">
+  <p><strong>Pais:</strong> {{ pais.nombre }}</p>
+
+</div>
+<div class="span12">
+  <a href="{% url 'pais_index' %}" class="btn btn-default" ><i class=" icon-arrow-left"></i></a>
+  <a href="{% url 'pais_editar' pk=pais.pk %}" class="btn btn-warning"><i class="icon-edit"></i></a>
+  <a href="{% url 'pais_remove' pk=pais.pk %}"  class="btn btn-danger"><i class="icon-trash"></i></a>
+</div>
+
+{% endblock %}

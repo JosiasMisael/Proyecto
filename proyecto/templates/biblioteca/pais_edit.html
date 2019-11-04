@@ -1,0 +1,13 @@
+{% extends 'biblioteca/base.html' %}
+{% block ac1 %}active{% endblock %}
+{% block titulo %} Pais {% endblock %}
+{% block content %}
+<h3>Categoria</h3>
+<form method="POST" class="post-form">{% csrf_token %}
+  <div class="form-group label-floating is-empty">
+    {{ form.as_p }}
+    <span class="material-input"></span>
+  </div>
+    <button type="submit" class="btn btn-success">Guardar</button>
+</form>
+{% endblock %}

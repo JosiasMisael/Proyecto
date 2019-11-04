@@ -2,7 +2,7 @@
 {% block ac3 %}active{% endblock %}
 {% block titulo %}Libro{% endblock %}
   {% block content %}
-  <h1>Libro <a rel="tooltip" data-original-title="Agregar" class="btn btn-success "><i class="icon-plus"></i></a></h1>
+  <h1>Libro <a href="{% url 'libro_nuevo' %}" rel="tooltip" data-original-title="Agregar" class="btn btn-success "><i class="icon-plus"></i></a></h1>
   <hr>
   <div class="row-fluid">
     <div class="span12">
@@ -14,31 +14,45 @@
           <table class="table table-bordered table-striped">
             <thead>
               <tr>
+               <th>Categoria de Libro</th>
                 <th>Título</th>
-                <th>Editoria</th>
-                <th>Precio de Prestamo</th>
-                <th>Cantidad de Unidades</th>
+                <th>Editorial</th> 
+                <th>Autores</th>                 
+                <th>Fecha Publicacion</th>     
+                <th>Total de Unidades</th>
+                <th>Precio de Prestamo</th>            
+                <th>Imagen</th>
                 <th>Opciones</th>
               </tr>
             </thead>
             <tbody>
-           <!--   {% for v in voc %}
+             {% for l in libro %}
                 <tr>
-                  <td>{{ v.nombre }}</td>
-                  <td>{{ v.apellido }}</td>
-                  <td>{{ v.residencia }}</td>
-                  <td>{{ v.email }}</td>
+                  <td>{{ l.categoria }}</td>
+                  <td>{{ l.titulo }}</td>
+                  <td>{{ l.editoria }}</td>
+                  <td> {% for a in l.autor.all %}
+                       {{a.nombre}}{{a.apellido}}{% if not forloop.last %}{% endif%}
+                    {% endfor%} </td>
+                  <td>{{ l.publicacion }}</td>
+                  <td>{{ l.unidad}}</td>               
+                  <td>Q{{l.precio}}</td>
                   <td>
-                 <a href="{% url 'vocalista_show' pk=v.pk %}" rel="tooltip"  class="btn btn-info btn-simple btn-xs" data-original-title="Detalles" > 
+                    {% if l.image %}
+                        <img class="img-fluid" width="100" height="75" src="{{l.image.url}}">
+                     {% endif %}         
+                      </td>
+                  <td>
+                 <a href="" rel="tooltip"  class="btn btn-info btn-simple btn-xs" data-original-title="Detalles" > 
                       <i class="icon-exclamation-sign"></i>
                     </a>
-                    <a href="{% url 'vocalista_edit' pk=v.pk %}" rel="tooltip" class="btn btn-warning btn-simple btn-xs" data-original-title="Editar"> 
+                    <a href="" rel="tooltip" class="btn btn-warning btn-simple btn-xs" data-original-title="Editar"> 
                       <i class="icon-edit"></i>
                     </a>
                   </td>
                 </tr>
               {% endfor %}
-            </tbody> -->
+            </tbody>
           </table>
         </div>
       </div>
